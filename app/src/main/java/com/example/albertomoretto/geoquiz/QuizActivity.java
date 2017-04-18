@@ -15,6 +15,7 @@ public class QuizActivity extends AppCompatActivity {
 
     private static final String TAG = "QuizActivity";
     private static final String KEY_INDEX = "index";
+    private static final String KEY_IS_CHEAT = "isCheater";
     private static final int REQUEST_CODE_CHEAT = 0;
 
 
@@ -102,6 +103,7 @@ public class QuizActivity extends AppCompatActivity {
         });
 
         if(savedInstanceState != null) mCurrentIndex = savedInstanceState.getInt(KEY_INDEX,0);
+        if(savedInstanceState != null) mIsCheater = savedInstanceState.getBoolean(KEY_IS_CHEAT,false);
 
         updateQuestion();
     }
@@ -151,5 +153,6 @@ public class QuizActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         Log.d(TAG,"onSaveInstanceState() called");
         outState.putInt(KEY_INDEX,mCurrentIndex);
+        outState.putBoolean(KEY_IS_CHEAT,mIsCheater);
     }
 }
